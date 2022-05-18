@@ -1,5 +1,5 @@
 ﻿PharmaApp
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\lagadece\Source\Repos\KhaptaPharmaB\PharmaApp\PharmaApp\App.xaml
 11407045341
 
-5-735127846
+3-1233169557
 192-1533232326
 MainWindow.xaml;
 
-True
+False
 

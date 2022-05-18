@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Fotoram.io%282%29.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fotoram.io(2).jpg" />
+  </ItemGroup>
+
 </Project>
