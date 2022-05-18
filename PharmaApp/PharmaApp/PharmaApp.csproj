@@ -8,10 +8,20 @@
 
   <ItemGroup>
     <None Remove="Fotoram.io%282%29.jpg" />
+    <None Remove="pill-line.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fotoram.io(2).jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="covid-line.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="pill-line.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
