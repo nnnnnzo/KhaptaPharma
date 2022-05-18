@@ -23,14 +23,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Action" Grid.Column="1" HorizontalAlignment="Right" Margin="0,11,168,0" VerticalAlignment="Top" Height="67" Width="74">
-            <Button.Background>
-                <ImageBrush ImageSource="/pill-line.png"/>
-            </Button.Background>
-        </Button>
+        <Button Content="Action" Grid.Column="1" HorizontalAlignment="Right" Margin="0,11,168,0" VerticalAlignment="Top" Height="67" Width="74" Background="{x:Null}"/>
         <Button Content="" Grid.Column="1" HorizontalAlignment="Right" Margin="0,11,89,0" VerticalAlignment="Top" Height="67" Width="74">
             <Button.Background>
-                <ImageBrush ImageSource="/pill-line.png" TileMode="None"/>
+                <ImageBrush ImageSource="/pill-line.png"/>
             </Button.Background>
         </Button>
         <Button Content="Action" Grid.Column="1" Margin="0,11,10,0" HorizontalAlignment="Right" Width="74" Height="67" VerticalAlignment="Top"/>
