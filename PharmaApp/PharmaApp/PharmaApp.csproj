@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="Fotoram.io(2).jpg" />
+    <None Remove="Khapta-Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Khapta-Logo.png" />
     <Resource Include="pill-line.png" />
   </ItemGroup>
 
