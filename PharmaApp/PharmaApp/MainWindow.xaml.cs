@@ -34,24 +34,26 @@ namespace PharmaApp
         {
             this.listViewTri.ItemsSource = ApplicationData.listeCategorieMedicament;
             this.grdData.ItemsSource = null;
-            this.listViewCol.DisplayMemberBinding = new Binding("libelleCategorie");
-            ((GridView)listViewTri.View).Columns[0].Header = "Categorie Medicament";
+            this.listViewTri.DisplayMemberPath = "libelleCategorie";
+            //this.listViewCol.DisplayMemberBinding = new Binding("libelleCategorie");
+            //((GridView)listViewTri.View).Columns[0].Header = "Categorie Medicament";
         }
 
         private void ttElementsItem_Selected(object sender, RoutedEventArgs e)
         {
             this.listViewTri.ItemsSource = null;
             this.grdData.ItemsSource = ApplicationData.listeAutorisations;
-            this.listViewCol.DisplayMemberBinding = null;
-            ((GridView)listViewTri.View).Columns[0].Header = "Toutes les autorisations";
+            //this.listViewCol.DisplayMemberBinding = null;
+            //((GridView)listViewTri.View).Columns[0].Header = "Toutes les autorisations";
         }
 
         private void maladieItem_Selected(object sender, RoutedEventArgs e)
         {
             this.listViewTri.ItemsSource = ApplicationData.listeMaladie;
+            this.listViewTri.DisplayMemberPath = "libelleMaladie";
             this.grdData.ItemsSource = null;
-            this.listViewCol.DisplayMemberBinding = new Binding("libelleMaladie");
-            ((GridView)listViewTri.View).Columns[0].Header = "Maladie";
+            //this.listViewCol.DisplayMemberBinding = new Binding("libelleMaladie");
+            //((GridView)listViewTri.View).Columns[0].Header = "Maladie";
         }
 
         /*

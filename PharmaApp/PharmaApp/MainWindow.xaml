@@ -178,11 +178,13 @@
                                 <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
                             </LinearGradientBrush>
                         </ListView.Background>
+                        <!--
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn x:Name="listViewCol" />
                             </GridView>
                         </ListView.View>
+                        -->
                     </ListView>
                     <DataGrid
                         x:Name="grdData"
