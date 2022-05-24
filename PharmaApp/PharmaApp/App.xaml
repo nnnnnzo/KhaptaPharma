@@ -3,6 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:PharmaApp"
-    StartupUri="MainWindow.xaml">
+    StartupUri="MainWindow.xaml" 
+    Startup="lancementApplication">
+    
     <Application.Resources />
 </Application>

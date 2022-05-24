@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="271*" />
-            <ColumnDefinition Width="688*"/>
+            <ColumnDefinition Width="688*" />
             <ColumnDefinition Width="327*" />
         </Grid.ColumnDefinitions>
         <Image
@@ -33,24 +33,25 @@
             Grid.Column="2"
             Margin="10,6,10,15"
             Stroke="White"
-            StrokeThickness="2" >
+            StrokeThickness="2">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF0C110D" Offset="0.937"/>
-                    <GradientStop Color="#FF217C2D" Offset="0"/>
-                    <GradientStop Color="#FF173A1C" Offset="0.267"/>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.937" Color="#FF0C110D" />
+                    <GradientStop Offset="0" Color="#FF217C2D" />
+                    <GradientStop Offset="0.267" Color="#FF173A1C" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            Grid.Column="1"
             Grid.ColumnSpan="2"
             Margin="9,10,10,10"
             Stroke="White"
-            StrokeThickness="2" Grid.Column="1" >
+            StrokeThickness="2">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFAA0000" Offset="1"/>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="Black" />
+                    <GradientStop Offset="1" Color="#FFAA0000" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -64,21 +65,21 @@
             FontSize="22"
             FontWeight="Bold"
             Foreground="White" />
-        <ComboBox
+        <ComboBox x:Name="maladieSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="27"
             Margin="21,86,21,0"
-            VerticalAlignment="Top">
-            <ComboBoxItem>La zoubinette</ComboBoxItem>
-        </ComboBox>
-        <DatePicker
+            VerticalAlignment="Top"
+            DisplayMemberPath="libelleMaladie"  />
+        <DatePicker x:Name="dateSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="29"
             Margin="21,154,21,0"
-            VerticalAlignment="Top" BorderBrush="{x:Null}" />
-        <TextBox
+            VerticalAlignment="Top"
+            BorderBrush="{x:Null}" />
+        <TextBox x:Name="commentBoxCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="100"
@@ -119,7 +120,7 @@
             FontStyle="Italic"
             FontWeight="SemiBold"
             Foreground="White" />
-        <ComboBox
+        <ComboBox x:Name="medSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="27"
@@ -137,30 +138,40 @@
             FontStyle="Italic"
             FontWeight="SemiBold"
             Foreground="White" />
-        <Button
+        <Button x:Name="buttonCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="29"
             Margin="24,0,18,23"
             VerticalAlignment="Bottom"
             Background="#FF00A635"
+            BorderBrush="White"
+            BorderThickness="2"
             Content="Créer"
             FontWeight="Bold"
-            Foreground="White" BorderBrush="White" BorderThickness="2" />
-        <TabControl Margin="10,10,0,15" Grid.Row="1" Grid.ColumnSpan="2">
+            Foreground="White" />
+        <TabControl
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="10,10,0,15">
             <TabItem Header="Autorisations">
                 <Grid>
                     <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF162E42"/>
-                            <GradientStop Color="#FF326187" Offset="1"/>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#FF162E42" />
+                            <GradientStop Offset="1" Color="#FF326187" />
                         </LinearGradientBrush>
                     </Grid.Background>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="254*"/>
-                        <ColumnDefinition Width="689*"/>
+                        <ColumnDefinition Width="254*" />
+                        <ColumnDefinition Width="689*" />
                     </Grid.ColumnDefinitions>
-                    <ListView Margin="10,66,10,10">
+                    <ListView
+                        x:Name="listViewTri"
+                        Margin="10,66,10,10"
+                        BorderBrush="#FF908282"
+                        FontWeight="Bold"
+                        Foreground="#FFC6302C">
                         <ListView.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="0.87" Color="Black" />
@@ -169,13 +180,21 @@
                         </ListView.Background>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn />
+                                <GridViewColumn x:Name="listViewCol" />
                             </GridView>
                         </ListView.View>
                     </ListView>
                     <DataGrid
-            Margin="10,10,10,10"
-            Foreground="White" Grid.Column="1">
+                        x:Name="grdData"
+                        Grid.Column="1"
+                        Margin="10,10,10,10"
+                        Foreground="Black" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Maladie" Binding="{Binding idMaladie}" />
+                            <DataGridTextColumn Header="Date" Binding="{Binding idDate}" />
+                            <DataGridTextColumn Header="Medicament" Binding="{Binding idMedicament}" />
+                            <DataGridTextColumn Header="Commentaire" Binding="{Binding commentaire}" />
+                        </DataGrid.Columns>
                         <DataGrid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="Black" />
@@ -184,33 +203,48 @@
                         </DataGrid.Background>
                     </DataGrid>
                     <ComboBox
-                        Margin="10,31,10,0" Height="27" VerticalAlignment="Top" Panel.ZIndex="-4">
-                        <ComboBoxItem IsSelected="True">Tous les éléments</ComboBoxItem>
-                        <ComboBoxItem>Catégorie de Maladie</ComboBoxItem>
-                        <ComboBoxItem>Maladie</ComboBoxItem>
-                        <ComboBoxItem>Médicament</ComboBoxItem>
+                        Height="27"
+                        Margin="10,31,10,0"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="-4">
+                        <ComboBoxItem x:Name="ttElementsItem" IsSelected="True" Selected="ttElementsItem_Selected">Tous les éléments</ComboBoxItem>
+                        <ComboBoxItem x:Name="catMedItem" Selected="catMedItem_Selected">Catégorie de Medicament</ComboBoxItem>
+                        <ComboBoxItem x:Name="maladieItem" Selected="maladieItem_Selected">Maladie</ComboBoxItem>
+                        <ComboBoxItem x:Name="medItem">Médicament</ComboBoxItem>
                     </ComboBox>
                     <Label
-            Margin="10,2,183,0"
-            Content="Tri par"
-            FontSize="14"
-            FontStyle="Italic"
-            FontWeight="SemiBold"
-            Foreground="White" Height="29" VerticalAlignment="Top" />
+                        Height="29"
+                        Margin="10,2,183,0"
+                        VerticalAlignment="Top"
+                        Content="Tri par"
+                        FontSize="14"
+                        FontStyle="Italic"
+                        FontWeight="SemiBold"
+                        Foreground="White" />
                 </Grid>
             </TabItem>
             <TabItem Header="Recherche">
                 <Grid>
                     <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF1D1002"/>
-                            <GradientStop Color="#FFFF8000" Offset="1"/>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#FF1D1002" />
+                            <GradientStop Offset="1" Color="#FFFF8000" />
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <TextBox x:Name="searchTextBox" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394" Height="36" Cursor="" FontSize="22" FontWeight="Bold" SelectionBrush="#FFF90000" Background="White"/>
-                    <DataGrid
-            Margin="20,80,19,27"
-            Foreground="White">
+                    <TextBox
+                        x:Name="searchTextBox"
+                        Width="394"
+                        Height="36"
+                        Margin="0,22,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Background="White"
+                        Cursor=""
+                        FontSize="22"
+                        FontWeight="Bold"
+                        SelectionBrush="#FFF90000"
+                        TextWrapping="Wrap" />
+                    <DataGrid Margin="10,80,10,10" Foreground="White">
                         <DataGrid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="Black" />
@@ -220,7 +254,36 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="Edition">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#FF060000" />
+                            <GradientStop Offset="1" Color="#FF9D0000" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <DataGrid Margin="10,10,10,39" Foreground="White">
+                        <DataGrid.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="1" Color="Black" />
+                                <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
+                            </LinearGradientBrush>
+                        </DataGrid.Background>
+                    </DataGrid>
+                    <Button
+            Height="29"
+            Margin="0,0,10,5"
+            VerticalAlignment="Bottom"
+            Background="#FF006AA6"
+            BorderBrush="White"
+            BorderThickness="2"
+            Content="Enregistrer"
+            FontWeight="Bold"
+            Foreground="White" HorizontalAlignment="Right" Width="188" />
+                </Grid>
+            </TabItem>
         </TabControl>
+        <Label x:Name="timeLabel" Content="00:00" Grid.Column="2" Margin="0,36,21,36" FontSize="48" Foreground="Red" FontFamily="OCR A Std" FontWeight="Normal" HorizontalAlignment="Right" Width="183"/>
 
     </Grid>
 </Window>

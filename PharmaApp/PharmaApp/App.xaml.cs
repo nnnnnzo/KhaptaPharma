@@ -13,5 +13,10 @@ namespace PharmaApp
     /// </summary>
     public partial class App : Application
     {
+        private void lancementApplication(object sender, StartupEventArgs e)
+        {
+            ApplicationData.loadApplicationData();
+        }
     }
+
 }
