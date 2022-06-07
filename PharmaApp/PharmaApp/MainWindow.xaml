@@ -65,21 +65,24 @@
             FontSize="22"
             FontWeight="Bold"
             Foreground="White" />
-        <ComboBox x:Name="maladieSelectorCreate"
+        <ComboBox
+            x:Name="maladieSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="27"
             Margin="21,86,21,0"
             VerticalAlignment="Top"
-            DisplayMemberPath="libelleMaladie"  />
-        <DatePicker x:Name="dateSelectorCreate"
+            DisplayMemberPath="libelleMaladie" />
+        <DatePicker
+            x:Name="dateSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="29"
             Margin="21,154,21,0"
             VerticalAlignment="Top"
             BorderBrush="{x:Null}" />
-        <TextBox x:Name="commentBoxCreate"
+        <TextBox
+            x:Name="commentBoxCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="100"
@@ -120,12 +123,14 @@
             FontStyle="Italic"
             FontWeight="SemiBold"
             Foreground="White" />
-        <ComboBox x:Name="medSelectorCreate"
+        <ComboBox
+            x:Name="medSelectorCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="27"
             Margin="21,347,21,0"
-            VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            DisplayMemberPath="libelleMedicament" />
         <Label
             Grid.Row="1"
             Grid.Column="2"
@@ -138,7 +143,8 @@
             FontStyle="Italic"
             FontWeight="SemiBold"
             Foreground="White" />
-        <Button x:Name="buttonCreate"
+        <Button
+            x:Name="buttonCreate"
             Grid.Row="1"
             Grid.Column="2"
             Height="29"
@@ -190,12 +196,15 @@
                         x:Name="grdData"
                         Grid.Column="1"
                         Margin="10,10,10,10"
-                        Foreground="Black" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        Foreground="Black"
+                        IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Maladie" Binding="{Binding idMaladie}" />
-                            <DataGridTextColumn Header="Date" Binding="{Binding idDate}" />
-                            <DataGridTextColumn Header="Medicament" Binding="{Binding idMedicament}" />
-                            <DataGridTextColumn Header="Commentaire" Binding="{Binding commentaire}" />
+                            <DataGridTextColumn Binding="{Binding libelleMaladie}" Header="Maladie" />
+                            <DataGridTextColumn Binding="{Binding libelleMedicament}" Header="Medicament" />
+                            <DataGridTextColumn Binding="{Binding dateAutorisation}" Header="Date" />
+                            <DataGridTextColumn Binding="{Binding commentaire}" Header="Commentaire" />
                         </DataGrid.Columns>
                         <DataGrid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -209,7 +218,12 @@
                         Margin="10,31,10,0"
                         VerticalAlignment="Top"
                         Panel.ZIndex="-4">
-                        <ComboBoxItem x:Name="ttElementsItem" IsSelected="True" Selected="ttElementsItem_Selected">Tous les éléments</ComboBoxItem>
+                        <ComboBoxItem
+                            x:Name="ttElementsItem"
+                            IsSelected="True"
+                            Selected="ttElementsItem_Selected">
+                            Tous les éléments
+                        </ComboBoxItem>
                         <ComboBoxItem x:Name="catMedItem" Selected="catMedItem_Selected">Catégorie de Medicament</ComboBoxItem>
                         <ComboBoxItem x:Name="maladieItem" Selected="maladieItem_Selected">Maladie</ComboBoxItem>
                         <ComboBoxItem x:Name="medItem">Médicament</ComboBoxItem>
@@ -236,17 +250,18 @@
                     <TextBox
                         x:Name="searchTextBox"
                         Width="394"
-                        Height="36"
-                        Margin="0,22,0,0"
-                        HorizontalAlignment="Center"
+                        Height="27"
+                        Margin="0,10,10,0"
+                        HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Background="White"
                         Cursor=""
-                        FontSize="22"
-                        FontWeight="Bold"
+                        FontSize="18"
+                        FontStyle="Italic"
+                        FontWeight="Normal"
                         SelectionBrush="#FFF90000"
                         TextWrapping="Wrap" />
-                    <DataGrid Margin="10,80,10,10" Foreground="White">
+                    <DataGrid Margin="10,48,10,10" Foreground="White">
                         <DataGrid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="Black" />
@@ -273,19 +288,31 @@
                         </DataGrid.Background>
                     </DataGrid>
                     <Button
-            Height="29"
-            Margin="0,0,10,5"
-            VerticalAlignment="Bottom"
-            Background="#FF006AA6"
-            BorderBrush="White"
-            BorderThickness="2"
-            Content="Enregistrer"
-            FontWeight="Bold"
-            Foreground="White" HorizontalAlignment="Right" Width="188" />
+                        Width="188"
+                        Height="29"
+                        Margin="0,0,10,5"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Background="#FF006AA6"
+                        BorderBrush="White"
+                        BorderThickness="2"
+                        Content="Enregistrer"
+                        FontWeight="Bold"
+                        Foreground="White" />
                 </Grid>
             </TabItem>
         </TabControl>
-        <Label x:Name="timeLabel" Content="00:00" Grid.Column="2" Margin="0,36,21,36" FontSize="48" Foreground="Red" FontFamily="OCR A Std" FontWeight="Normal" HorizontalAlignment="Right" Width="183"/>
+        <Label
+            x:Name="timeLabel"
+            Grid.Column="2"
+            Width="183"
+            Margin="0,36,21,36"
+            HorizontalAlignment="Right"
+            Content="00:00"
+            FontFamily="OCR A Std"
+            FontSize="48"
+            FontWeight="Normal"
+            Foreground="Red" />
 
     </Grid>
 </Window>

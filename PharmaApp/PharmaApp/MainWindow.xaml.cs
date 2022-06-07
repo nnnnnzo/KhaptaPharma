@@ -26,8 +26,9 @@ namespace PharmaApp
         public MainWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mmTongue Tieds");}, this.Dispatcher);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
             this.maladieSelectorCreate.ItemsSource = ApplicationData.listeMaladie;
+            this.medSelectorCreate.ItemsSource = ApplicationData.listeMedicament;
         }
 
         private void catMedItem_Selected(object sender, RoutedEventArgs e)

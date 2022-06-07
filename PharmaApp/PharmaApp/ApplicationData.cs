@@ -23,6 +23,12 @@ namespace PharmaApp
             set;
         }
 
+        public static List<Medicament> listeMedicament
+        {
+            get;
+            set;
+        }
+
         public static void loadApplicationData()
         {
             //chargement des tables
@@ -34,6 +40,9 @@ namespace PharmaApp
 
             Maladie uneMaladie = new Maladie();
             listeMaladie = uneMaladie.FindAll();
+
+            Medicament unMedicament = new Medicament();
+            listeMedicament = unMedicament.FindAll();
         }
     }
 }

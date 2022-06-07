@@ -5,27 +5,20 @@ using System.Text;
 
 namespace PharmaApp
 {
-    public class Autorisation : Crud<Autorisation>
+    public class Medicament : Crud<Medicament>
     {
-
-        public string libelleMaladie
+        public int idMedicament
         {
             get;set;
         }
-        public string dateAutorisation
+
+        public int idCategorie
         {
             get;set;
         }
         public string libelleMedicament
         {
             get;set;
-        }
-        public string commentaire
-        {
-            get;set;
-        }
-        public Autorisation()
-        {
         }
         public void Create()
         {
@@ -36,6 +29,7 @@ namespace PharmaApp
         {
             throw new NotImplementedException();
         }
+
         public void Read()
         {
             throw new NotImplementedException();
@@ -45,27 +39,25 @@ namespace PharmaApp
         {
             throw new NotImplementedException();
         }
-
-        public List<Autorisation> FindAll()
+        public List<Medicament> FindAll()
         {
-            List<Autorisation> listeAutorisations = new List<Autorisation>();
+            List<Medicament> listeMedicament = new List<Medicament>();
             DataAccess access = new DataAccess();
             SqlDataReader reader;
             try
             {
                 if (access.openConnection())
                 {
-                    reader = access.getData("select libellemedicament, libellemaladie, DATEAUTORISATION, commentaire from AUTORISER a join maladie ma on a.idmaladie = ma.idmaladie join medicament me on a.idmedicament = me.IDMEDICAMENT; ");
+                    reader = access.getData("select * from medicament;");
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            Autorisation uneAutorisation = new Autorisation();
-                            uneAutorisation.libelleMaladie = reader.GetString(0);
-                            uneAutorisation.libelleMedicament = reader.GetString(1);
-                            uneAutorisation.dateAutorisation = ((DateTime)reader.GetDateTime(2)).ToShortDateString();
-                            uneAutorisation.commentaire = reader.GetString(3);
-                            listeAutorisations.Add(uneAutorisation);
+                            Medicament unMedicament = new Medicament();
+                            unMedicament.idMedicament = (int)reader.GetInt32(0);
+                            unMedicament.idCategorie = (int)reader.GetInt32(1);
+                            unMedicament.libelleMedicament = reader.GetString(2);
+                            listeMedicament.Add(unMedicament);
                         }
                     }
                     else
@@ -80,13 +72,12 @@ namespace PharmaApp
             {
                 System.Windows.MessageBox.Show(ex.Message, "Important Message");
             }
-            return listeAutorisations;
+            return listeMedicament;
         }
 
-        public List<Autorisation> FindBySelection(string criteres)
+        public List<Medicament> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
-
     }
 }
