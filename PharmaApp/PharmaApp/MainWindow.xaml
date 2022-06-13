@@ -80,7 +80,7 @@
             Height="29"
             Margin="21,154,21,0"
             VerticalAlignment="Top"
-            BorderBrush="{x:Null}" />
+            BorderBrush="{x:Null}" FirstDayOfWeek="Monday"/>
         <TextBox
             x:Name="commentBoxCreate"
             Grid.Row="1"
@@ -147,13 +147,16 @@
             x:Name="buttonCreate"
             Grid.Row="1"
             Grid.Column="2"
+            Height="29"
             Margin="21,0,21,30"
+            VerticalAlignment="Bottom"
             Background="#FF00A635"
             BorderBrush="White"
             BorderThickness="2"
+            Click="buttonCreate_Click"
             Content="Créer"
             FontWeight="Bold"
-            Foreground="White" Height="29" VerticalAlignment="Bottom" />
+            Foreground="White" />
         <TabControl
             Grid.Row="1"
             Grid.ColumnSpan="2"

@@ -29,7 +29,13 @@ namespace PharmaApp
         }
         public void Create()
         {
-            throw new NotImplementedException();
+            DataAccess access = new DataAccess();
+            SqlDataReader reader;
+            access.openConnection();
+            reader = access.getData($"SELECT M.IDMALADIE, ME.IDMEDICAMENT FROM AUTORISER A JOIN MALADIE M ON A.idmaladie = M.idmaladie JOIN MEDICAMENT ME ON A.idmedicament = ME.idmedicament WHERE libellemaladie='{this.LibelleMaladie}' and libelleMedicament='{this.LibelleMedicament}'");
+            int idmaladieSQL = reader.GetInt32(0);
+            int idmedicamentSQL = reader.GetInt32(1);
+            access.setData($"INSERT INTO AUTORISER(idmaladie, dateautorisation, idmedicament, commentaire) VALUES({idmaladieSQL}, {this.DateAutorisation}, {idmedicamentSQL}, {this.Commentaire})");
         }
 
         public void Delete()

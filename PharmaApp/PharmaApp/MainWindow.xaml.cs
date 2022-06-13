@@ -64,6 +64,17 @@ namespace PharmaApp
             this.grdData.ItemsSource = null;
         }
 
+        private void buttonCreate_Click(object sender, RoutedEventArgs e)
+        {
+            Autorisation autorisationInsert = new Autorisation();
+            autorisationInsert.LibelleMaladie = maladieSelectorCreate.Text;
+            autorisationInsert.LibelleMedicament = medSelectorCreate.Text;
+            autorisationInsert.DateAutorisation = dateSelectorCreate.SelectedDate.Value.Date.ToShortDateString();
+            autorisationInsert.Commentaire = commentBoxCreate.Text;
+            autorisationInsert.Create();
+            ApplicationData.loadApplicationData();
+        }
+
         /*
         private void display_this(List<T> laListe, string leChamp, string txtHeader)
         {
