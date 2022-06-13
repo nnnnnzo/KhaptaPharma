@@ -147,15 +147,13 @@
             x:Name="buttonCreate"
             Grid.Row="1"
             Grid.Column="2"
-            Height="29"
-            Margin="21,413,21,0"
-            VerticalAlignment="Top"
+            Margin="21,0,21,30"
             Background="#FF00A635"
             BorderBrush="White"
             BorderThickness="2"
             Content="Créer"
             FontWeight="Bold"
-            Foreground="White" />
+            Foreground="White" Height="29" VerticalAlignment="Bottom" />
         <TabControl
             Grid.Row="1"
             Grid.ColumnSpan="2"
