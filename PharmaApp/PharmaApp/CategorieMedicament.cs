@@ -8,11 +8,11 @@ namespace PharmaApp
     public class CategorieMedicament : Crud<CategorieMedicament>
     {
 
-        public int idCategorie
+        public int IdCategorie
         {
             get;set;
         }
-        public string libelleCategorie
+        public string LibelleCategorie
         {
             get;set;
         }
@@ -55,8 +55,8 @@ namespace PharmaApp
                         while (reader.Read())
                         {
                             CategorieMedicament uneCategorie = new CategorieMedicament();
-                            uneCategorie.idCategorie = (int)reader.GetInt32(0);
-                            uneCategorie.libelleCategorie = reader.GetString(1);
+                            uneCategorie.IdCategorie = (int)reader.GetInt32(0);
+                            uneCategorie.LibelleCategorie = reader.GetString(1);
                             listeCategorie.Add(uneCategorie);
                         }
                     }

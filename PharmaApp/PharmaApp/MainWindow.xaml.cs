@@ -26,7 +26,7 @@ namespace PharmaApp
         public MainWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
+            //DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
             this.maladieSelectorCreate.ItemsSource = ApplicationData.listeMaladie;
             this.medSelectorCreate.ItemsSource = ApplicationData.listeMedicament;
         }
@@ -35,7 +35,7 @@ namespace PharmaApp
         {
             this.listViewTri.ItemsSource = ApplicationData.listeCategorieMedicament;
             this.grdData.ItemsSource = null;
-            this.listViewTri.DisplayMemberPath = "libelleCategorie";
+            this.listViewTri.DisplayMemberPath = "LibelleCategorie";
             //this.listViewCol.DisplayMemberBinding = new Binding("libelleCategorie");
             //((GridView)listViewTri.View).Columns[0].Header = "Categorie Medicament";
         }
@@ -51,10 +51,17 @@ namespace PharmaApp
         private void maladieItem_Selected(object sender, RoutedEventArgs e)
         {
             this.listViewTri.ItemsSource = ApplicationData.listeMaladie;
-            this.listViewTri.DisplayMemberPath = "libelleMaladie";
+            this.listViewTri.DisplayMemberPath = "LibelleMaladie";
             this.grdData.ItemsSource = null;
             //this.listViewCol.DisplayMemberBinding = new Binding("libelleMaladie");
             //((GridView)listViewTri.View).Columns[0].Header = "Maladie";
+        }
+
+        private void medItem_Selected(object sender, RoutedEventArgs e)
+        {
+            this.listViewTri.ItemsSource = ApplicationData.listeMedicament;
+            this.listViewTri.DisplayMemberPath = "LibelleMedicament";
+            this.grdData.ItemsSource = null;
         }
 
         /*

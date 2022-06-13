@@ -7,12 +7,12 @@ namespace PharmaApp
 {
     public class Maladie : Crud<Maladie>
     {
-        public int idMaladie
+        public int IdMaladie
         {
             get;set;
         }
 
-        public string libelleMaladie
+        public string LibelleMaladie
         {
             get;set;
         }
@@ -55,8 +55,8 @@ namespace PharmaApp
                         while (reader.Read())
                         {
                             Maladie uneMaladie = new Maladie();
-                            uneMaladie.idMaladie = (int)reader.GetInt32(0);
-                            uneMaladie.libelleMaladie = reader.GetString(1);
+                            uneMaladie.IdMaladie = (int)reader.GetInt32(0);
+                            uneMaladie.LibelleMaladie = reader.GetString(1);
                             listeMaladies.Add(uneMaladie);
                         }
                     }

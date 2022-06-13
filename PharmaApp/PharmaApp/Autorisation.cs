@@ -8,19 +8,19 @@ namespace PharmaApp
     public class Autorisation : Crud<Autorisation>
     {
 
-        public string libelleMaladie
+        public string LibelleMaladie
         {
             get;set;
         }
-        public string dateAutorisation
+        public string DateAutorisation
         {
             get;set;
         }
-        public string libelleMedicament
+        public string LibelleMedicament
         {
             get;set;
         }
-        public string commentaire
+        public string Commentaire
         {
             get;set;
         }
@@ -61,10 +61,10 @@ namespace PharmaApp
                         while (reader.Read())
                         {
                             Autorisation uneAutorisation = new Autorisation();
-                            uneAutorisation.libelleMaladie = reader.GetString(0);
-                            uneAutorisation.libelleMedicament = reader.GetString(1);
-                            uneAutorisation.dateAutorisation = ((DateTime)reader.GetDateTime(2)).ToShortDateString();
-                            uneAutorisation.commentaire = reader.GetString(3);
+                            uneAutorisation.LibelleMaladie = reader.GetString(0);
+                            uneAutorisation.LibelleMedicament = reader.GetString(1);
+                            uneAutorisation.DateAutorisation = ((DateTime)reader.GetDateTime(2)).ToShortDateString();
+                            uneAutorisation.Commentaire = reader.GetString(3);
                             listeAutorisations.Add(uneAutorisation);
                         }
                     }

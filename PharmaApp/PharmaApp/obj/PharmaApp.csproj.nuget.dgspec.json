@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj": {}
+    "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma2\\PharmaApp\\PharmaApp\\PharmaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj": {
+    "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma2\\PharmaApp\\PharmaApp\\PharmaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
+        "projectUniqueName": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma2\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
         "projectName": "PharmaApp",
-        "projectPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
+        "projectPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma2\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
         "packagesPath": "C:\\Users\\lagadece\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\obj\\",
+        "outputPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma2\\PharmaApp\\PharmaApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -72,7 +72,7 @@
             Height="27"
             Margin="21,86,21,0"
             VerticalAlignment="Top"
-            DisplayMemberPath="libelleMaladie" />
+            DisplayMemberPath="LibelleMaladie" />
         <DatePicker
             x:Name="dateSelectorCreate"
             Grid.Row="1"
@@ -130,7 +130,7 @@
             Height="27"
             Margin="21,347,21,0"
             VerticalAlignment="Top"
-            DisplayMemberPath="libelleMedicament" />
+            DisplayMemberPath="LibelleMedicament" />
         <Label
             Grid.Row="1"
             Grid.Column="2"
@@ -197,21 +197,16 @@
                         Grid.Column="1"
                         Margin="10,10,10,10"
                         AutoGenerateColumns="False"
+                        Background="White"
                         CanUserAddRows="False"
                         Foreground="Black"
                         IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding libelleMaladie}" Header="Maladie" />
-                            <DataGridTextColumn Binding="{Binding libelleMedicament}" Header="Medicament" />
-                            <DataGridTextColumn Binding="{Binding dateAutorisation}" Header="Date" />
-                            <DataGridTextColumn Binding="{Binding commentaire}" Header="Commentaire" />
+                            <DataGridTextColumn Binding="{Binding LibelleMaladie}" Header="Maladie" />
+                            <DataGridTextColumn Binding="{Binding LibelleMedicament}" Header="Medicament" />
+                            <DataGridTextColumn Binding="{Binding DateAutorisation}" Header="Date" />
+                            <DataGridTextColumn Binding="{Binding Commentaire}" Header="Commentaire" />
                         </DataGrid.Columns>
-                        <DataGrid.Background>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="1" Color="Black" />
-                                <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
-                            </LinearGradientBrush>
-                        </DataGrid.Background>
                     </DataGrid>
                     <ComboBox
                         Height="27"
@@ -226,7 +221,7 @@
                         </ComboBoxItem>
                         <ComboBoxItem x:Name="catMedItem" Selected="catMedItem_Selected">Catégorie de Medicament</ComboBoxItem>
                         <ComboBoxItem x:Name="maladieItem" Selected="maladieItem_Selected">Maladie</ComboBoxItem>
-                        <ComboBoxItem x:Name="medItem">Médicament</ComboBoxItem>
+                        <ComboBoxItem x:Name="medItem" Selected="medItem_Selected">Médicament</ComboBoxItem>
                     </ComboBox>
                     <Label
                         Height="29"
@@ -239,54 +234,12 @@
                         Foreground="White" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Recherche">
-                <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#FF1D1002" />
-                            <GradientStop Offset="1" Color="#FFFF8000" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
-                    <TextBox
-                        x:Name="searchTextBox"
-                        Width="394"
-                        Height="27"
-                        Margin="0,10,10,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Background="White"
-                        Cursor=""
-                        FontSize="18"
-                        FontStyle="Italic"
-                        FontWeight="Normal"
-                        SelectionBrush="#FFF90000"
-                        TextWrapping="Wrap" />
-                    <DataGrid Margin="10,48,10,10" Foreground="White">
-                        <DataGrid.Background>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="1" Color="Black" />
-                                <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
-                            </LinearGradientBrush>
-                        </DataGrid.Background>
-                    </DataGrid>
-                </Grid>
-            </TabItem>
             <TabItem Header="Edition">
-                <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#FF060000" />
-                            <GradientStop Offset="1" Color="#FF9D0000" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
-                    <DataGrid Margin="10,10,10,39" Foreground="White">
-                        <DataGrid.Background>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="1" Color="Black" />
-                                <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
-                            </LinearGradientBrush>
-                        </DataGrid.Background>
-                    </DataGrid>
+                <Grid Background="Black">
+                    <DataGrid
+                        Margin="10,10,10,39"
+                        Background="White"
+                        Foreground="White" />
                     <Button
                         Width="188"
                         Height="29"
