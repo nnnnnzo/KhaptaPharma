@@ -88,7 +88,6 @@ namespace PharmaApp
                         supAuto.Delete();
                         ApplicationData.loadApplicationData();
                         grdData.ItemsSource = ApplicationData.listeAutorisations;
-                        MessageBox.Show("L'autorisation a bien été supprimer.", "Confirmation", MessageBoxButton.OK,MessageBoxImage.Information);
                         grdData.SelectedIndex = -1;
                         break;
                     case MessageBoxResult.No:
@@ -99,6 +98,11 @@ namespace PharmaApp
                 MessageBox.Show("Aucune autorisation selectionnée.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
 
 
+        }
+
+        private void modButtonAutorisation_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         /*
