@@ -26,7 +26,7 @@ namespace PharmaApp
         public MainWindow()
         {
             InitializeComponent();
-            //DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
             this.maladieSelectorCreate.ItemsSource = ApplicationData.listeMaladie;
             this.medSelectorCreate.ItemsSource = ApplicationData.listeMedicament;
         }
@@ -67,12 +67,30 @@ namespace PharmaApp
         private void buttonCreate_Click(object sender, RoutedEventArgs e)
         {
             Autorisation autorisationInsert = new Autorisation();
-            autorisationInsert.LibelleMaladie = maladieSelectorCreate.Text;
-            autorisationInsert.LibelleMedicament = medSelectorCreate.Text;
+            autorisationInsert.idmaladieSQL = ((Maladie)maladieSelectorCreate.SelectedItem).IdMaladie;
+            autorisationInsert.idmedicamentSQL = ((Medicament)medSelectorCreate.SelectedItem).IdMedicament;
             autorisationInsert.DateAutorisation = dateSelectorCreate.SelectedDate.Value.Date.ToShortDateString();
-            autorisationInsert.Commentaire = commentBoxCreate.Text;
+            autorisationInsert.Commentaire = commentBoxCreate.Text.Replace("'", "''");
             autorisationInsert.Create();
             ApplicationData.loadApplicationData();
+            grdData.ItemsSource = ApplicationData.listeAutorisations;
+        }
+
+        private void SupButtonAutorisation_Click(object sender, RoutedEventArgs e)
+        {
+            Autorisation supAuto = (Autorisation)grdData.SelectedItem;
+            MessageBoxResult result = MessageBox.Show($"Supprimer l'autorisation {supAuto.LibelleMaladie} | {supAuto.LibelleMedicament} du {supAuto.DateAutorisation} ?", "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    supAuto.Delete();
+                    ApplicationData.loadApplicationData();
+                    grdData.ItemsSource = ApplicationData.listeAutorisations;
+                    MessageBox.Show("L'autorisation a bien été supprimer.", "Confirmation", MessageBoxButton.OK,MessageBoxImage.Information);
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         /*

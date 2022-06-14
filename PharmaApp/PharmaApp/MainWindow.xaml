@@ -19,29 +19,14 @@
             <RowDefinition Height="529*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="271*" />
-            <ColumnDefinition Width="688*" />
-            <ColumnDefinition Width="327*" />
+            <ColumnDefinition Width="363*" />
+            <ColumnDefinition Width="923*" />
         </Grid.ColumnDefinitions>
         <Image
             Margin="0,0,5,10"
             Source="/Khapta-Logo.png"
             Stretch="Uniform"
             StretchDirection="Both" />
-        <Rectangle
-            Grid.Row="1"
-            Grid.Column="2"
-            Margin="10,6,10,15"
-            Stroke="White"
-            StrokeThickness="2">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0.937" Color="#FF0C110D" />
-                    <GradientStop Offset="0" Color="#FF217C2D" />
-                    <GradientStop Offset="0.267" Color="#FF173A1C" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
         <Rectangle
             Grid.Column="1"
             Grid.ColumnSpan="2"
@@ -55,112 +40,10 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="34"
-            Margin="10,6,10,0"
-            VerticalAlignment="Top"
-            Content="Création autorisation"
-            FontSize="22"
-            FontWeight="Bold"
-            Foreground="White" />
-        <ComboBox
-            x:Name="maladieSelectorCreate"
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="27"
-            Margin="21,86,21,0"
-            VerticalAlignment="Top"
-            DisplayMemberPath="LibelleMaladie" />
-        <DatePicker
-            x:Name="dateSelectorCreate"
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="29"
-            Margin="21,154,21,0"
-            VerticalAlignment="Top"
-            BorderBrush="{x:Null}" FirstDayOfWeek="Monday"/>
-        <TextBox
-            x:Name="commentBoxCreate"
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="100"
-            Margin="21,216,21,0"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="2"
-            Width="61"
-            Margin="18,57,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Maladie"
-            FontSize="14"
-            FontStyle="Italic"
-            FontWeight="SemiBold"
-            Foreground="White" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="2"
-            Margin="18,120,208,0"
-            VerticalAlignment="Top"
-            Content="Date"
-            FontSize="14"
-            FontStyle="Italic"
-            FontWeight="SemiBold"
-            Foreground="White" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="2"
-            Width="169"
-            Margin="18,188,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Commentaire (optionnel)"
-            FontSize="14"
-            FontStyle="Italic"
-            FontWeight="SemiBold"
-            Foreground="White" />
-        <ComboBox
-            x:Name="medSelectorCreate"
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="27"
-            Margin="21,347,21,0"
-            VerticalAlignment="Top"
-            DisplayMemberPath="LibelleMedicament" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="2"
-            Width="92"
-            Margin="21,318,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Médicament"
-            FontSize="14"
-            FontStyle="Italic"
-            FontWeight="SemiBold"
-            Foreground="White" />
-        <Button
-            x:Name="buttonCreate"
-            Grid.Row="1"
-            Grid.Column="2"
-            Height="29"
-            Margin="21,0,21,30"
-            VerticalAlignment="Bottom"
-            Background="#FF00A635"
-            BorderBrush="White"
-            BorderThickness="2"
-            Click="buttonCreate_Click"
-            Content="Créer"
-            FontWeight="Bold"
-            Foreground="White" />
         <TabControl
             Grid.Row="1"
-            Grid.ColumnSpan="2"
-            Margin="10,10,0,15">
+            Grid.ColumnSpan="3"
+            Margin="10,10,10,15">
             <TabItem Header="Autorisations">
                 <Grid>
                     <Grid.Background>
@@ -170,12 +53,13 @@
                         </LinearGradientBrush>
                     </Grid.Background>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="254*" />
-                        <ColumnDefinition Width="689*" />
+                        <ColumnDefinition Width="253*" />
+                        <ColumnDefinition Width="707*" />
+                        <ColumnDefinition Width="300*"/>
                     </Grid.ColumnDefinitions>
                     <ListView
                         x:Name="listViewTri"
-                        Margin="10,66,10,10"
+                        Margin="10,66,10,75"
                         BorderBrush="#FF908282"
                         FontWeight="Bold"
                         Foreground="#FFC6302C">
@@ -233,6 +117,100 @@
                         FontStyle="Italic"
                         FontWeight="SemiBold"
                         Foreground="White" />
+                    <Button x:Name="modButtonAutorisation" Content="Modifier" Margin="10,0,10,41" Height="26" VerticalAlignment="Bottom" BorderBrush="White" BorderThickness="2,2,2,2" Background="#FFCB8218" Foreground="White"/>
+                    <Button x:Name="SupButtonAutorisation" Content="Supprimer" Margin="10,0,10,10" Background="#FFB21212" Height="26" VerticalAlignment="Bottom" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Click="SupButtonAutorisation_Click"/>
+                    <Rectangle
+            Margin="6,10,10,10"
+            Stroke="White"
+            StrokeThickness="2" Grid.Column="2">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0.937" Color="#FF0C110D" />
+                                <GradientStop Offset="0" Color="#FF217C2D" />
+                                <GradientStop Offset="0.267" Color="#FF173A1C" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label
+            Height="35"
+            Margin="6,9,8,0"
+            VerticalAlignment="Top"
+            Content="Création autorisation"
+            FontSize="22"
+            FontWeight="Bold"
+            Foreground="White" Grid.Column="2" />
+                    <ComboBox
+            x:Name="maladieSelectorCreate"
+            Height="23"
+            Margin="14,81,18,0"
+            VerticalAlignment="Top"
+            DisplayMemberPath="LibelleMaladie" Grid.Column="2" />
+                    <DatePicker
+            x:Name="dateSelectorCreate"
+            Height="26"
+            Margin="12,141,14,0"
+            VerticalAlignment="Top"
+            BorderBrush="{x:Null}" FirstDayOfWeek="Monday" Grid.Column="2"/>
+                    <TextBox
+            x:Name="commentBoxCreate"
+            Height="90"
+            Margin="14,195,18,0"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" Grid.Column="2" />
+                    <Label
+            Width="78"
+            Margin="10,56,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Maladie"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="SemiBold"
+            Foreground="White" Grid.Column="2" Height="25" />
+                    <Label
+            Margin="10,111,205,0"
+            VerticalAlignment="Top"
+            Content="Date"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="SemiBold"
+            Foreground="White" Grid.Column="2" Height="25" />
+                    <Label
+            Width="170"
+            Margin="10,171,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Commentaire (optionnel)"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="SemiBold"
+            Foreground="White" Grid.Column="2" Height="34" />
+                    <ComboBox
+            x:Name="medSelectorCreate"
+            Height="23"
+            Margin="14,312,18,0"
+            VerticalAlignment="Top"
+            DisplayMemberPath="LibelleMedicament" Grid.Column="2" />
+                    <Label
+            Width="98"
+            Margin="12,285,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Médicament"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="SemiBold"
+            Foreground="White" Grid.Column="2" Height="27" />
+                    <Button
+            x:Name="buttonCreate"
+            Margin="14,0,18,23"
+            Background="#FF00A635"
+            BorderBrush="White"
+            BorderThickness="2"
+            Click="buttonCreate_Click"
+            Content="Créer"
+            FontWeight="Bold"
+            Foreground="White" Grid.Column="2" Height="25" VerticalAlignment="Bottom" />
                 </Grid>
             </TabItem>
             <TabItem Header="Edition">
@@ -258,15 +236,13 @@
         </TabControl>
         <Label
             x:Name="timeLabel"
-            Grid.Column="2"
-            Width="183"
-            Margin="0,36,21,36"
-            HorizontalAlignment="Right"
+            Grid.Column="1"
+            Margin="0,36,10,36"
             Content="00:00"
             FontFamily="OCR A Std"
             FontSize="48"
             FontWeight="Normal"
-            Foreground="Red" />
+            Foreground="Red" HorizontalAlignment="Right" Width="182" />
 
     </Grid>
 </Window>

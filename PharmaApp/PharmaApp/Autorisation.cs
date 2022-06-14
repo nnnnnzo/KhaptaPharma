@@ -24,23 +24,27 @@ namespace PharmaApp
         {
             get;set;
         }
+        public int idmaladieSQL
+        {
+            get;set;
+        }
+        public int idmedicamentSQL
+        {
+            get; set;
+        }
         public Autorisation()
         {
         }
         public void Create()
         {
             DataAccess access = new DataAccess();
-            SqlDataReader reader;
-            access.openConnection();
-            reader = access.getData($"SELECT M.IDMALADIE, ME.IDMEDICAMENT FROM AUTORISER A JOIN MALADIE M ON A.idmaladie = M.idmaladie JOIN MEDICAMENT ME ON A.idmedicament = ME.idmedicament WHERE libellemaladie='{this.LibelleMaladie}' and libelleMedicament='{this.LibelleMedicament}'");
-            int idmaladieSQL = reader.GetInt32(0);
-            int idmedicamentSQL = reader.GetInt32(1);
-            access.setData($"INSERT INTO AUTORISER(idmaladie, dateautorisation, idmedicament, commentaire) VALUES({idmaladieSQL}, {this.DateAutorisation}, {idmedicamentSQL}, {this.Commentaire})");
+            access.setData($"INSERT INTO AUTORISER(idmaladie, dateautorisation, idmedicament, commentaire) VALUES({idmaladieSQL}, '{this.DateAutorisation}', {idmedicamentSQL}, '{this.Commentaire}')");
         }
 
         public void Delete()
         {
-            throw new NotImplementedException();
+            DataAccess access = new DataAccess();
+            access.setData($"DELETE FROM AUTORISER WHERE IDMALADIE ={idmaladieSQL} AND DATEAUTORISATION='{this.DateAutorisation}' AND IDMEDICAMENT={idmedicamentSQL}");
         }
         public void Read()
         {
@@ -61,16 +65,18 @@ namespace PharmaApp
             {
                 if (access.openConnection())
                 {
-                    reader = access.getData("select libellemedicament, libellemaladie, DATEAUTORISATION, commentaire from AUTORISER a join maladie ma on a.idmaladie = ma.idmaladie join medicament me on a.idmedicament = me.IDMEDICAMENT; ");
+                    reader = access.getData("select libellemedicament, libellemaladie, DATEAUTORISATION, commentaire, a.idmaladie, a.idmedicament from AUTORISER a join maladie ma on a.idmaladie = ma.idmaladie join medicament me on a.idmedicament = me.IDMEDICAMENT; ");
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
                             Autorisation uneAutorisation = new Autorisation();
-                            uneAutorisation.LibelleMaladie = reader.GetString(0);
-                            uneAutorisation.LibelleMedicament = reader.GetString(1);
+                            uneAutorisation.LibelleMedicament = reader.GetString(0);
+                            uneAutorisation.LibelleMaladie = reader.GetString(1);
                             uneAutorisation.DateAutorisation = ((DateTime)reader.GetDateTime(2)).ToShortDateString();
                             uneAutorisation.Commentaire = reader.GetString(3);
+                            uneAutorisation.idmaladieSQL = reader.GetInt32(4);
+                            uneAutorisation.idmedicamentSQL = reader.GetInt32(5);
                             listeAutorisations.Add(uneAutorisation);
                         }
                     }
