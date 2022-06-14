@@ -1,20 +1,20 @@
-﻿PharmaApp
-1.0.0.0
+﻿PharmaApp_s3avswyd_wpftmp
+
 
 winexe
 C#
 .cs
 C:\Users\lagadece\Source\Repos\KhaptaPharma\PharmaApp\PharmaApp\obj\Debug\netcoreapp3.1\
-PharmaApp
+PharmaApp_s3avswyd_wpftmp
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\lagadece\Source\Repos\KhaptaPharma\PharmaApp\PharmaApp\App.xaml
 11407045341
 
-121141350426
-193188482162
+121908938571
+386376964324
 MainWindow.xaml;
 
-False
+True
 

@@ -78,19 +78,27 @@ namespace PharmaApp
 
         private void SupButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
-            Autorisation supAuto = (Autorisation)grdData.SelectedItem;
-            MessageBoxResult result = MessageBox.Show($"Supprimer l'autorisation {supAuto.LibelleMaladie} | {supAuto.LibelleMedicament} du {supAuto.DateAutorisation} ?", "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            switch (result)
+            if(grdData.SelectedIndex != -1)
             {
-                case MessageBoxResult.Yes:
-                    supAuto.Delete();
-                    ApplicationData.loadApplicationData();
-                    grdData.ItemsSource = ApplicationData.listeAutorisations;
-                    MessageBox.Show("L'autorisation a bien été supprimer.", "Confirmation", MessageBoxButton.OK,MessageBoxImage.Information);
-                    break;
-                case MessageBoxResult.No:
-                    break;
+                Autorisation supAuto = (Autorisation)grdData.SelectedItem;
+                MessageBoxResult result = MessageBox.Show($"Supprimer l'autorisation {supAuto.LibelleMaladie} | {supAuto.LibelleMedicament} du {supAuto.DateAutorisation} ?", "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        supAuto.Delete();
+                        ApplicationData.loadApplicationData();
+                        grdData.ItemsSource = ApplicationData.listeAutorisations;
+                        MessageBox.Show("L'autorisation a bien été supprimer.", "Confirmation", MessageBoxButton.OK,MessageBoxImage.Information);
+                        grdData.SelectedIndex = -1;
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
+            else
+                MessageBox.Show("Aucune autorisation selectionnée.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
         }
 
         /*
