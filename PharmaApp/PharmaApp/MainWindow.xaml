@@ -126,7 +126,7 @@
                         BorderBrush="White"
                         BorderThickness="2,2,2,2"
                         Content="Modifier"
-                        Foreground="White" />
+                        Foreground="White" FontWeight="Bold" />
                     <Button
                         x:Name="SupButtonAutorisation"
                         Height="26"
@@ -137,7 +137,7 @@
                         BorderThickness="2,2,2,2"
                         Click="SupButtonAutorisation_Click"
                         Content="Supprimer"
-                        Foreground="White" />
+                        Foreground="White" FontWeight="Bold" />
                     <Rectangle
                         Grid.Column="2"
                         Margin="6,10,10,10"

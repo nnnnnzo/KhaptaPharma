@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tedzVy75DkeqbJuGW+0WwEkPrucgJytPwYLlhcD31fkF6R0C7qZ7F2nSH8PKKARTMD2zF0Wxh/5uvMNk+fYwHw==",
+  "dgSpecHash": "YJDjetFdSBI4uju8H5IY37QZTJREt4vntkH/V79zPah+u5JHpB5rk+amr71Qzn5t3UOKGfslmpP4Soom5YUpng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
+  "projectFilePath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma3\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lagadece\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\lagadece\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
