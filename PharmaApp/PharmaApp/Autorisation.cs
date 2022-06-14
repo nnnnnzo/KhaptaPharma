@@ -10,23 +10,23 @@ namespace PharmaApp
 
         public string LibelleMaladie
         {
-            get;set;
+            get; set;
         }
         public string DateAutorisation
         {
-            get;set;
+            get; set;
         }
         public string LibelleMedicament
         {
-            get;set;
+            get; set;
         }
         public string Commentaire
         {
-            get;set;
+            get; set;
         }
         public int idmaladieSQL
         {
-            get;set;
+            get; set;
         }
         public int idmedicamentSQL
         {
@@ -65,7 +65,7 @@ namespace PharmaApp
             {
                 if (access.openConnection())
                 {
-                    reader = access.getData("select libellemedicament, libellemaladie, DATEAUTORISATION, commentaire, a.idmaladie, a.idmedicament from AUTORISER a join maladie ma on a.idmaladie = ma.idmaladie join medicament me on a.idmedicament = me.IDMEDICAMENT; ");
+                    reader = access.getData("select libellemedicament, libellemaladie, DATEAUTORISATION, commentaire, a.idmaladie, a.idmedicament from AUTORISER a join maladie ma on a.idmaladie = ma.idmaladie join medicament me on a.idmedicament = me.IDMEDICAMENT;");
                     if (reader.HasRows)
                     {
                         while (reader.Read())
