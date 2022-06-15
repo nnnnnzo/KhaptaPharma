@@ -105,6 +105,29 @@ namespace PharmaApp
             throw new NotImplementedException();
         }
 
+        private void listViewTri_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            if(listViewTri.SelectedIndex > -1)
+            {
+                Autorisation triAutorisation = new Autorisation();
+                string crit = "";
+                switch (listViewTri.DisplayMemberPath.ToLower())
+                {
+                    case "libellemaladie":
+                        crit = ((Maladie)listViewTri.SelectedItem).LibelleMaladie.ToString();
+                        break;
+
+                    case "libellemedicament":
+                        crit = ((Medicament)listViewTri.SelectedItem).LibelleMedicament.ToString();
+                        break;
+                    case "libellecategorie":
+                        crit = ((CategorieMedicament)listViewTri.SelectedItem).LibelleCategorie.ToString();
+                        break;
+                }
+                grdData.ItemsSource = triAutorisation.FindBySelection(crit, listViewTri.DisplayMemberPath.ToLower());
+            }
+        }
+
         /*
         private void display_this(List<T> laListe, string leChamp, string txtHeader)
         {

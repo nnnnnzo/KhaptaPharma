@@ -55,7 +55,7 @@
                         Margin="10,66,10,10"
                         BorderBrush="#FF908282"
                         FontWeight="Bold"
-                        Foreground="Red">
+                        Foreground="Red" SelectionChanged="listViewTri_Selected">
                         <ListView.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="0.87" Color="Black" />
@@ -75,10 +75,10 @@
                         Grid.Column="1"
                         Margin="10,10,10,10"
                         AutoGenerateColumns="False"
-                        Background="White"
+                        Background="#FF2A2A2A"
                         CanUserAddRows="False"
                         Foreground="#FF00A635"
-                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI">
+                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI" SelectionUnit="FullRow">
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                 <Setter Property="Foreground" Value="Black" />
@@ -87,11 +87,12 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding LibelleMaladie}" Header="Maladie" />
                             <DataGridTextColumn Binding="{Binding LibelleMedicament}" Header="Medicament" />
+                            <DataGridTextColumn Binding="{Binding LibelleCategorie}" Header="Categorie medicament" />
                             <DataGridTextColumn Binding="{Binding DateAutorisation}" Header="Date" />
                             <DataGridTextColumn Binding="{Binding Commentaire}" Header="Commentaire" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <ComboBox
+                    <ComboBox x:Name="triComboBox"
                         Height="27"
                         Margin="10,31,10,0"
                         VerticalAlignment="Top"
@@ -262,26 +263,6 @@
                         Click="SupButtonAutorisation_Click"
                         Content="Supprimer"
                         Foreground="White" FontWeight="Bold" Grid.Column="2" Height="26" VerticalAlignment="Top" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Edition">
-                <Grid Background="Black">
-                    <DataGrid
-                        Margin="10,10,10,39"
-                        Background="White"
-                        Foreground="White" />
-                    <Button
-                        Width="188"
-                        Height="29"
-                        Margin="0,0,10,5"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Background="#FF006AA6"
-                        BorderBrush="White"
-                        BorderThickness="2"
-                        Content="Enregistrer"
-                        FontWeight="Bold"
-                        Foreground="White" />
                 </Grid>
             </TabItem>
         </TabControl>
