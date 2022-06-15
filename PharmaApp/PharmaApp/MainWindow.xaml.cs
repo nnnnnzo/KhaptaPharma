@@ -111,7 +111,7 @@ namespace PharmaApp
 
         private void modButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
 
         private void listViewTri_Selected(object sender, SelectionChangedEventArgs e)
@@ -133,7 +133,7 @@ namespace PharmaApp
                         crit = ((CategorieMedicament)listViewTri.SelectedItem).LibelleCategorie.ToString();
                         break;
                 }
-                grdData.ItemsSource = triAutorisation.FindBySelection(crit, listViewTri.DisplayMemberPath.ToLower());
+                grdData.ItemsSource = triAutorisation.FindBySelection(crit.Replace("'", "''"), listViewTri.DisplayMemberPath.ToLower());
             }
         }
 
