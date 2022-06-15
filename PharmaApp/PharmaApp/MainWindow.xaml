@@ -157,7 +157,7 @@
                         x:Name="commentBoxCreate"
                         Grid.Column="2"
                         Height="90"
-                        Margin="14,195,18,0"
+                        Margin="14,252,18,0"
                         VerticalAlignment="Top"
                         TextWrapping="Wrap" />
                     <Label
@@ -186,7 +186,7 @@
                         Grid.Column="2"
                         Width="170"
                         Height="34"
-                        Margin="10,171,0,0"
+                        Margin="10,228,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Commentaire (optionnel)"
@@ -198,14 +198,14 @@
                         x:Name="medSelectorCreate"
                         Grid.Column="2"
                         Height="23"
-                        Margin="14,312,18,0"
+                        Margin="14,202,18,0"
                         VerticalAlignment="Top"
                         DisplayMemberPath="LibelleMedicament" />
                     <Label
                         Grid.Column="2"
                         Width="98"
                         Height="27"
-                        Margin="12,285,0,0"
+                        Margin="12,175,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Médicament"
