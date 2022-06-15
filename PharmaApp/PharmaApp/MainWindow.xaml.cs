@@ -66,14 +66,23 @@ namespace PharmaApp
 
         private void buttonCreate_Click(object sender, RoutedEventArgs e)
         {
-            Autorisation autorisationInsert = new Autorisation();
-            autorisationInsert.idmaladieSQL = ((Maladie)maladieSelectorCreate.SelectedItem).IdMaladie;
-            autorisationInsert.idmedicamentSQL = ((Medicament)medSelectorCreate.SelectedItem).IdMedicament;
-            autorisationInsert.DateAutorisation = dateSelectorCreate.SelectedDate.Value.Date.ToShortDateString();
-            autorisationInsert.Commentaire = commentBoxCreate.Text.Replace("'", "''");
-            autorisationInsert.Create();
-            ApplicationData.loadApplicationData();
-            grdData.ItemsSource = ApplicationData.listeAutorisations;
+            if (maladieSelectorCreate.SelectedIndex > -1 && medSelectorCreate.SelectedIndex > -1 && dateSelectorCreate.SelectedDate != null)
+            {
+                Autorisation autorisationInsert = new Autorisation();
+                autorisationInsert.idmaladieSQL = ((Maladie)maladieSelectorCreate.SelectedItem).IdMaladie;
+                autorisationInsert.idmedicamentSQL = ((Medicament)medSelectorCreate.SelectedItem).IdMedicament;
+                autorisationInsert.DateAutorisation = dateSelectorCreate.SelectedDate.Value.Date.ToShortDateString();
+                autorisationInsert.Commentaire = commentBoxCreate.Text.Replace("'", "''");
+                autorisationInsert.Create();
+                maladieSelectorCreate.SelectedIndex = -1;
+                medSelectorCreate.SelectedIndex = -1;
+                commentBoxCreate.Text = "";
+                dateSelectorCreate.SelectedDate = null;
+                ApplicationData.loadApplicationData();
+                grdData.ItemsSource = ApplicationData.listeAutorisations;
+            }
+            else
+                MessageBox.Show("Informations manquantes pour la création d'une autorisation.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void SupButtonAutorisation_Click(object sender, RoutedEventArgs e)
