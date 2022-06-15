@@ -112,9 +112,15 @@ namespace PharmaApp
         private void modButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
             if (grdData.IsReadOnly)
+            {
                 grdData.IsReadOnly = false;
+                modifLabel.Visibility = Visibility.Visible;
+            }
             else
+            {
                 grdData.IsReadOnly = true;
+                modifLabel.Visibility = Visibility.Hidden;
+            }
 
         }
 

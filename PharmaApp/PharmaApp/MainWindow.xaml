@@ -263,6 +263,7 @@
                         Click="SupButtonAutorisation_Click"
                         Content="Supprimer"
                         Foreground="White" FontWeight="Bold" Grid.Column="2" Height="26" VerticalAlignment="Top" />
+                    <Label x:Name="modifLabel" Content="Mode modification activé" Grid.Column="2" Margin="0,0,8,10" HorizontalAlignment="Right" Width="179" Height="26" VerticalAlignment="Bottom" Foreground="Black" FontWeight="Bold" FlowDirection="RightToLeft" Background="Red" FontSize="14" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>
