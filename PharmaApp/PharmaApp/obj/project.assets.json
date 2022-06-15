@@ -460,11 +460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharmaNew\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
+      "projectUniqueName": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
       "projectName": "PharmaApp",
-      "projectPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharmaNew\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
+      "projectPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\PharmaApp.csproj",
       "packagesPath": "C:\\Users\\lagadece\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharmaNew\\PharmaApp\\PharmaApp\\obj\\",
+      "outputPath": "C:\\Users\\lagadece\\Source\\Repos\\KhaptaPharma\\PharmaApp\\PharmaApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

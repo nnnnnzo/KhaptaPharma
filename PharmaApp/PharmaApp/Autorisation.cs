@@ -59,7 +59,7 @@ namespace PharmaApp
 
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Autorisation> FindAll()

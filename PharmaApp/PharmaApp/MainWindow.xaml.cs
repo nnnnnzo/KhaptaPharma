@@ -111,7 +111,11 @@ namespace PharmaApp
 
         private void modButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
-           throw new NotImplementedException();
+            if (grdData.IsReadOnly)
+                grdData.IsReadOnly = false;
+            else
+                grdData.IsReadOnly = true;
+
         }
 
         private void listViewTri_Selected(object sender, SelectionChangedEventArgs e)

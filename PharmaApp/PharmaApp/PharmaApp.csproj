@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Resource Include="Khapta-Logo.png" />
-    <Resource Include="pill-line.png" />
   </ItemGroup>
 
 
