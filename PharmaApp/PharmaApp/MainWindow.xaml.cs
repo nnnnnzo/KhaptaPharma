@@ -26,9 +26,12 @@ namespace PharmaApp
         public MainWindow()
         {
             InitializeComponent();
+            //si le projet ne veut pas run, faire une modif n'importe où 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate { this.timeLabel.Content = DateTime.Now.ToString("HH:mm Tongue Tieds");}, this.Dispatcher);
             this.maladieSelectorCreate.ItemsSource = ApplicationData.listeMaladie;
             this.medSelectorCreate.ItemsSource = ApplicationData.listeMedicament;
+            this.grdDataMaladies.ItemsSource = ApplicationData.listeMaladie;
+            this.grdDataMed.ItemsSource = ApplicationData.listeMedicament;
         }
 
         private void catMedItem_Selected(object sender, RoutedEventArgs e)
@@ -74,12 +77,11 @@ namespace PharmaApp
                 autorisationInsert.DateAutorisation = dateSelectorCreate.SelectedDate.Value.Date.ToShortDateString();
                 autorisationInsert.Commentaire = commentBoxCreate.Text.Replace("'", "''");
                 autorisationInsert.Create();
-                maladieSelectorCreate.SelectedIndex = -1;
-                medSelectorCreate.SelectedIndex = -1;
-                commentBoxCreate.Text = "";
-                dateSelectorCreate.SelectedDate = null;
-                ApplicationData.loadApplicationData();
-                grdData.ItemsSource = ApplicationData.listeAutorisations;
+                this.maladieSelectorCreate.SelectedIndex = -1;
+                this.medSelectorCreate.SelectedIndex = -1;
+                this.commentBoxCreate.Text = "";
+                this.dateSelectorCreate.SelectedDate = null;
+                Refresh();
             }
             else
                 MessageBox.Show("Informations manquantes pour la création d'une autorisation.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -87,17 +89,16 @@ namespace PharmaApp
 
         private void SupButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
-            if(grdData.SelectedIndex != -1)
+            if(this.grdData.SelectedIndex != -1)
             {
-                Autorisation supAuto = (Autorisation)grdData.SelectedItem;
+                Autorisation supAuto = (Autorisation)this.grdData.SelectedItem;
                 MessageBoxResult result = MessageBox.Show($"Supprimer l'autorisation {supAuto.LibelleMaladie} | {supAuto.LibelleMedicament} du {supAuto.DateAutorisation} ?", "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
                         supAuto.Delete();
-                        ApplicationData.loadApplicationData();
-                        grdData.ItemsSource = ApplicationData.listeAutorisations;
-                        grdData.SelectedIndex = -1;
+                        Refresh();
+                        this.grdData.SelectedIndex = -1;
                         break;
                     case MessageBoxResult.No:
                         break;
@@ -111,41 +112,56 @@ namespace PharmaApp
 
         private void modButtonAutorisation_Click(object sender, RoutedEventArgs e)
         {
-            if (grdData.IsReadOnly)
+            if (this.grdData.IsReadOnly)
             {
-                grdData.IsReadOnly = false;
-                modifLabel.Visibility = Visibility.Visible;
+                this.listViewTri.ItemsSource = null;
+                this.grdData.ItemsSource = ApplicationData.listeAutorisations;
+                this.grdData.IsReadOnly = false;
+                this.modifLabel.Visibility = Visibility.Visible;
+                this.grdData.BorderBrush = Brushes.Red;
+
             }
             else
             {
-                grdData.IsReadOnly = true;
-                modifLabel.Visibility = Visibility.Hidden;
+                this.grdData.IsReadOnly = true;
+                this.modifLabel.Visibility = Visibility.Hidden;
+                this.grdData.BorderBrush = Brushes.White;
+                Autorisation autoUpdate = new Autorisation();
+                autoUpdate.Update();
+                Refresh();
             }
 
         }
 
         private void listViewTri_Selected(object sender, SelectionChangedEventArgs e)
         {
-            if(listViewTri.SelectedIndex > -1)
+            if(this.listViewTri.SelectedIndex > -1)
             {
                 Autorisation triAutorisation = new Autorisation();
                 string crit = "";
-                switch (listViewTri.DisplayMemberPath.ToLower())
+                switch (this.listViewTri.DisplayMemberPath.ToLower())
                 {
                     case "libellemaladie":
-                        crit = ((Maladie)listViewTri.SelectedItem).LibelleMaladie.ToString();
+                        crit = ((Maladie)this.listViewTri.SelectedItem).LibelleMaladie.ToString();
                         break;
 
                     case "libellemedicament":
-                        crit = ((Medicament)listViewTri.SelectedItem).LibelleMedicament.ToString();
+                        crit = ((Medicament)this.listViewTri.SelectedItem).LibelleMedicament.ToString();
                         break;
                     case "libellecategorie":
-                        crit = ((CategorieMedicament)listViewTri.SelectedItem).LibelleCategorie.ToString();
+                        crit = ((CategorieMedicament)this.listViewTri.SelectedItem).LibelleCategorie.ToString();
                         break;
                 }
-                grdData.ItemsSource = triAutorisation.FindBySelection(crit.Replace("'", "''"), listViewTri.DisplayMemberPath.ToLower());
+                this.grdData.ItemsSource = triAutorisation.FindBySelection(crit.Replace("'", "''"), this.listViewTri.DisplayMemberPath.ToLower());
             }
         }
+
+        public void Refresh()
+        {
+            ApplicationData.loadApplicationData();
+            this.grdData.ItemsSource = ApplicationData.listeAutorisations;
+        }
+
 
         /*
         private void display_this(List<T> laListe, string leChamp, string txtHeader)

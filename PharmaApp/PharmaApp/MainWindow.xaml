@@ -9,7 +9,7 @@
     Width="1433"
     Height="751"
     Background="#FF303030"
-    mc:Ignorable="d">
+    mc:Ignorable="d" MinWidth="1121" MinHeight="715">
     <Window.Resources>
         <Color x:Key="GradientStopColor1">#FF343434</Color>
     </Window.Resources>
@@ -30,7 +30,7 @@
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="Black" />
-                    <GradientStop Offset="1" Color="#FFAA0000" />
+                    <GradientStop Offset="0.6" Color="#FF197837" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -38,13 +38,7 @@
             Grid.ColumnSpan="2"
             Margin="10,110,10,15" Grid.RowSpan="2">
             <TabItem Header="Autorisations">
-                <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#FF162E42" />
-                            <GradientStop Offset="1" Color="#FF326187" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
+                <Grid Background="#FF197837">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="707*" />
@@ -55,13 +49,7 @@
                         Margin="10,66,10,10"
                         BorderBrush="#FF908282"
                         FontWeight="Bold"
-                        Foreground="Red" SelectionChanged="listViewTri_Selected">
-                        <ListView.Background>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="0.87" Color="Black" />
-                                <GradientStop Offset="0" Color="{DynamicResource GradientStopColor1}" />
-                            </LinearGradientBrush>
-                        </ListView.Background>
+                        Foreground="#FF00FF8B" SelectionChanged="listViewTri_Selected" Background="#FF2A2A2A">
                         <!--
                         <ListView.View>
                             <GridView>
@@ -77,8 +65,8 @@
                         AutoGenerateColumns="False"
                         Background="#FF2A2A2A"
                         CanUserAddRows="False"
-                        Foreground="#FF00A635"
-                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI" SelectionUnit="FullRow">
+                        Foreground="#FF00FF8B"
+                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI" SelectionUnit="FullRow" BorderBrush="White">
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                 <Setter Property="Foreground" Value="Black" />
@@ -120,15 +108,7 @@
                         Grid.Column="2"
                         Margin="6,10,10,0"
                         Stroke="White"
-                        StrokeThickness="2" Height="384" VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="0.937" Color="#FF0C110D" />
-                                <GradientStop Offset="0" Color="#FF217C2D" />
-                                <GradientStop Offset="0.267" Color="#FF173A1C" />
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                        StrokeThickness="2" Height="384" VerticalAlignment="Top" Fill="#FF2A2A2A"/>
                     <Label
                         Grid.Column="2"
                         Height="35"
@@ -228,15 +208,7 @@
                         Grid.Column="2"
                         Margin="6,403,10,0"
                         Stroke="White"
-                        StrokeThickness="2" Height="114" VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="0.937" Color="#FF110C0F" />
-                                <GradientStop Offset="0" Color="#FF53217C" />
-                                <GradientStop Offset="0.493" Color="#FF2F173A" />
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                        StrokeThickness="2" Height="114" VerticalAlignment="Top" Fill="#FF2A2A2A"/>
                     <Label
                         Grid.Column="2"
                         Height="35"
@@ -249,11 +221,14 @@
                     <Button
                         x:Name="modButtonAutorisation"
                         Margin="14,447,18,0"
-                        Background="#FFCB7A18"
+                        Background="#FF7C7C7C"
                         BorderBrush="White"
                         BorderThickness="2,2,2,2"
                         Content="Modifier"
-                        Foreground="White" FontWeight="Bold" Grid.Column="2" Height="26" VerticalAlignment="Top" Click="modButtonAutorisation_Click" />
+                        Foreground="White" FontWeight="Bold" Grid.Column="2" Height="26" VerticalAlignment="Top" Click="modButtonAutorisation_Click" 
+                        ToolTipService.InitialShowDelay="1700" 
+                        ToolTipService.ShowDuration="5000" 
+                        ToolTip="Déverrouille la grille de données pour en modifier le contenu" />
                     <Button
                         x:Name="SupButtonAutorisation"
                         Margin="14,479,18,0"
@@ -266,16 +241,66 @@
                     <Label x:Name="modifLabel" Content="Mode modification activé" Grid.Column="2" Margin="0,0,8,10" HorizontalAlignment="Right" Width="179" Height="26" VerticalAlignment="Bottom" Foreground="Black" FontWeight="Bold" FlowDirection="RightToLeft" Background="Red" FontSize="14" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Maladies">
+                <Grid Background="#FF197837">
+                    <DataGrid
+                        x:Name="grdDataMaladies"
+                        Grid.Column="1"
+                        Margin="10,10,10,10"
+                        AutoGenerateColumns="False"
+                        Background="#FF2A2A2A"
+                        CanUserAddRows="False"
+                        Foreground="#FF00FF8B"
+                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI" SelectionUnit="FullRow" BorderBrush="White">
+                        
+                        <DataGrid.Resources>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="Black" />
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding IdMaladie}" Header="Numéro" />
+                            <DataGridTextColumn Binding="{Binding LibelleMaladie}" Header="Nom" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Medicaments">
+                <Grid Background="#FF197837">
+                    <DataGrid
+                        x:Name="grdDataMed"
+                        Grid.Column="1"
+                        Margin="10,10,10,10"
+                        AutoGenerateColumns="False"
+                        Background="#FF2A2A2A"
+                        CanUserAddRows="False"
+                        Foreground="#FF00FF8B"
+                        IsReadOnly="True" GridLinesVisibility="None" CanUserDeleteRows="False" HorizontalGridLinesBrush="Black" RowBackground="#FF2A2A2A" VerticalGridLinesBrush="#FF979797" FontFamily="Segoe UI" SelectionUnit="FullRow" BorderBrush="White">
+
+                        <DataGrid.Resources>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="Black" />
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding IdMedicament}" Header="Numéro" />
+                            <DataGridTextColumn Binding="{Binding LibelleMedicament}" Header="Nom" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
         </TabControl>
         <Label
             x:Name="timeLabel"
             Grid.Column="1"
-            Margin="0,23,0,23"
+            Margin="0,21,14,25"
             Content="00:00"
             FontFamily="OCR A Std"
             FontSize="48"
             FontWeight="Normal"
-            Foreground="Red" HorizontalAlignment="Right" Width="182" />
+            Foreground="#FF00FF8B" HorizontalAlignment="Right" Width="182" />
         <Label
             Grid.Column="1"
             Margin="10,23,0,23"
@@ -283,7 +308,7 @@
             FontFamily="OCR A Std"
             FontSize="48"
             FontWeight="Normal"
-            Foreground="Red" HorizontalAlignment="Left" Width="370" />
+            Foreground="#FF00FF8B" HorizontalAlignment="Left" Width="437" />
 
     </Grid>
 </Window>

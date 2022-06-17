@@ -44,7 +44,7 @@ namespace PharmaApp
         public void Create()
         {
             DataAccess access = new DataAccess();
-            access.setData($"INSERT INTO AUTORISER(idmaladie, dateautorisation, idmedicament, commentaire) VALUES({idmaladieSQL}, '{this.DateAutorisation}', {idmedicamentSQL}, '{this.Commentaire}')");
+            access.setData($"INSERT INTO AUTORISER(idmaladie, dateautorisation, idmedicament, commentaire) VALUES({idmaladieSQL}, '{this.DateAutorisation}', {idmedicamentSQL}, '{this.Commentaire.Replace("'", "''")}')");
         }
 
         public void Delete()
@@ -59,6 +59,12 @@ namespace PharmaApp
 
         public void Update()
         {
+            DataAccess access = new DataAccess();
+            access.setData($"DELETE FROM AUTORISER");
+            foreach (Autorisation uneAutorisation in ApplicationData.listeAutorisations)
+            {
+                uneAutorisation.Create();
+            }
             
         }
 
